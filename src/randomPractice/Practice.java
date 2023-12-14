@@ -1,19 +1,37 @@
 package randomPractice;
 
+import java.util.HashSet;
+
 public class Practice {
+
 	public static void main(String[] args) {
 
-		// 1 2 3 4 5
-		// 6 7 8 9 10
-		// 11 12 13 14 15
-		// Creat a nested loop for this
-		int setCount = 15;
-		for (int i = 0; i < 3; i++) {
-			for (int j = 0; j <= setCount; j++) {
-				System.out.print(j + " ");
-			}
-			System.out.println(i);
-		}
+		// Find the duplicates in the given array
 
+		String[] names = { "Sohrab", "Milad", "Elham", "Bahar", "Sohrab" };
+		int[] numbers = { 1, 2, 45, 6, 1, 6 };
+		System.out.println(hasDuplicate(names));
+		System.out.println(hasDuplicate_int(numbers));
+
+	}
+
+	public static boolean hasDuplicate(String[] str) {
+		HashSet<String> temp = new HashSet<>();
+		for (int i = 0; i < str.length; i++) {
+			if (temp.add(str[i]) == false) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean hasDuplicate_int(int[] nums) {
+		HashSet<Integer> temp = new HashSet<Integer>();
+		for (int i = 0; i < nums.length; i++) {
+			if (temp.add(nums[i]) == false) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
